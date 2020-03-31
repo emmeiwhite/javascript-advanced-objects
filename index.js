@@ -60,3 +60,50 @@ const obj = {
 };
 
 // How to copy.
+const clone = Object.assign({}, obj);
+clone.d = "d";
+
+console.log(`obj = ${Object.keys(obj)}`);
+console.log(`obj = ${Object.keys(clone)}`);
+
+// We can clone an object using "spread operator" in ES6... which is an awesome way forward
+const person = {
+  name: "Mr Malik",
+  age: 28,
+  showDetails: function() {
+    console.log(`Name is :${this.name}`);
+    console.log(`Age is :${this.age}`);
+  }
+};
+
+person.showDetails();
+
+const clonedPerson = { ...person };
+
+// Note that cloned object is a seperate object having its own reference
+clonedPerson.employeeStatus = "working";
+console.log(Object.keys(person).length); // 3
+console.log(Object.keys(clonedPerson).length); // 4
+
+/*---
+  Shallow vs Deep Clone 
+  =====================
+  >Shallow clone happens only when our keys are non objects.
+  >In case of objects within objects, we cannot clone using either Object.assign or using spread operator. We need to do something call JSON.parse(JSON.stringify(obj));
+  >Let's see an example:: First for the case of trying to clone
+  
+---*/
+
+const employee = {
+  name: "Sahil",
+  age: 28,
+  address: {
+    street: "Baghat Barzullah !!!",
+    house_no: 23
+  }
+};
+
+const clonedEmployee = { ...employee };
+clonedEmployee.address = "Salamati !!!";
+console.log(clonedEmployee);
+console.log(employee);
