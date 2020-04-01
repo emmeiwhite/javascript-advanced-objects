@@ -120,3 +120,49 @@ deepClonedEmployee.address = {
 
 console.log(deepClonedEmployee.address);
 console.log(employee.address);
+
+/* --- ES7, Some new features 
+      1) includes() function          2) exponential operator
+--- */
+
+console.log("Helloooo".includes("l")); // true
+console.log(["birds", "fishes", "humans"].includes("humans")); // true
+console.log(["birds", "fishes", "humans"].includes("fish")); // false
+
+const square = x => x ** 2;
+const cube = x => x ** 3;
+
+console.log(`Square of 5 is :${square(5)}`);
+console.log(`Cube of 5 is :${cube(5)}`);
+
+/* ---
+ES8 : New Object modifier functions. Before ES8 we used to have Object.keys() only.
+Object.values() and  Object.entries() ;
+---*/
+
+// 1. Object.keys()
+const laptop = {
+  brand: "Lenovo",
+  color: "silver",
+  processor: "i5"
+};
+
+const laptopKeys = Object.keys(laptop);
+console.log("Keys of laptop are :", laptopKeys);
+laptopKeys.forEach(key => {
+  console.log(laptop[key]);
+});
+
+// 2. Object.values() | Now we can directly get the values  of an object without needing the keys.
+
+const laptopValues = Object.values(laptop);
+console.log(laptopValues); // Array of the values [ 'Lenovo', 'silver', 'i5' ]
+
+// 3. Object.entries()
+
+console.log(Object.entries(laptop));
+const keyValues = Object.entries(laptop).map(arr => {
+  return arr[0] + " : " + arr[1];
+});
+
+console.log(keyValues);
