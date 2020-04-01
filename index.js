@@ -166,3 +166,5 @@ const keyValues = Object.entries(laptop).map(arr => {
 });
 
 console.log(keyValues);
+
+// ES8 awesome new feature :: Async
