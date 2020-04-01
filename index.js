@@ -103,7 +103,20 @@ const employee = {
   }
 };
 
+/* --- In the below case SHALLOW rendering does not work at all --- */
 const clonedEmployee = { ...employee };
 clonedEmployee.address = "Salamati !!!";
 console.log(clonedEmployee);
 console.log(employee);
+
+// We need to  use JSON.parse(JSON.stringify(obj));
+
+const deepClonedEmployee = JSON.parse(JSON.stringify(employee));
+
+deepClonedEmployee.address = {
+  street: "Iqbal Colony, Sonawara",
+  houseNo: "277"
+};
+
+console.log(deepClonedEmployee.address);
+console.log(employee.address);
