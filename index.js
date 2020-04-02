@@ -244,3 +244,26 @@ for (const [key, value] of Object.entries(test)) {
 }
 
 console.log(Object.entries(test));
+
+/* ---
+  ES10 ECMAScript 2019
+  1). flat() 2). flatMap() 3). trimStart() 4). trimEnd()  
+  ---*/
+
+console.log("========== ES10 ================");
+const arr1 = [1, 2, 3, 4, 5];
+console.log(arr1.flat());
+
+const arr2 = [1, 2, [3, 4], 5];
+console.log(arr2.flat());
+
+// Removing Duplicates from an array.
+
+const a1 = [1, 2, 4, 2, 1, 8];
+const newType = [...new Set(a1)];
+console.log("Hip Hip Hurray !!!");
+console.log(newType);
+
+const filteredArray = a1.filter((el, i) => a1.indexOf(el) == i);
+
+console.log("Filtered Array:", filteredArray);
