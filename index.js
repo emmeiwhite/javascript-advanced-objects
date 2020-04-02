@@ -167,4 +167,80 @@ const keyValues = Object.entries(laptop).map(arr => {
 
 console.log(keyValues);
 
-// ES8 awesome new feature :: Async
+// ES8 awesome new feature :: async / await | Will discuss this later
+
+/* Let's discuss some more loops : ES6 concepts !!!
+  1) for in : Used with Objects. To enumerating over objects 
+  2) for of : Used with Arrays and Strings. To iterate over arrays and strings in javascript
+*/
+
+const basket = ["apples", "oranges", "grapes"];
+
+// for of
+for (let item of basket) {
+  console.log(item); // Arrays and Strings are Iterables
+}
+
+for (let item of "Hello") {
+  console.log(item);
+}
+
+// for in
+const car = {
+  model: "ferrari",
+  price: "1billion $",
+  color: "silver"
+};
+for (let item in car) {
+  console.log(item);
+}
+
+// Now let's try to use 'for of' with Objects and 'for in' with arrays
+for (let item in basket) {
+  // This returns the index of the arrrays
+  console.log(item);
+}
+
+/*---  
+  for(let item of car) {
+    console.log(item);
+  }
+---*/
+
+const rows = [
+  {
+    id: 3,
+    title: "sometitle",
+    catid: 55,
+    img: "file"
+  },
+  {
+    id: 4,
+    title: "sometitle",
+    catid: 55,
+    img: "file"
+  },
+  {
+    id: 5,
+    title: "sometitle",
+    catid: 55,
+    img: "file"
+  }
+];
+
+const newArray = rows.map(obj => {
+  return {
+    id: obj.id,
+    img: obj.img
+  };
+});
+console.log(newArray);
+
+// 'for of' with Object.entries() revision
+const test = { a: 1, b: 2, c: 3 };
+
+for (const [key, value] of Object.entries(test)) {
+  console.log(key, value);
+}
+
+console.log(Object.entries(test));
